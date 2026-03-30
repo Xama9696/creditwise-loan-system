@@ -57,7 +57,7 @@ pip install -r requirements.txt
 streamlit run app.py
 
 
-Dashboard (Tableau)
+## 📊 Dashboard (Tableau)
 
 This project also includes a Tableau dashboard analyzing:
 
