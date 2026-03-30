@@ -1,66 +1,58 @@
-# 💳 CreditWise Loan Approval & Monitoring System
+# 💳 CreditWise Loan Approval & Risk Monitoring System
 
-## 🚀 Overview
-This project is an end-to-end **credit risk prediction and monitoring system** built using Machine Learning and deployed with Streamlit.
+This project is an end-to-end credit risk analytics system that simulates how banks evaluate loan applications, monitor model outputs, and generate insights.
 
-It not only predicts loan approval decisions but also simulates **real-world model monitoring** used in banking systems by logging predictions and tracking model behavior.
+A machine learning model predicts loan approval using features like income, credit score, and engineered metrics such as debt-to-income ratio. The model is deployed via a Streamlit app, allowing users to input details and receive instant decisions.
 
+To mimic real-world systems, all predictions are logged with timestamps, enabling basic monitoring and traceability. A Tableau dashboard complements the system by visualizing approval trends, income vs loan patterns, and credit risk insights.
+
+Together, the application and dashboard demonstrate both the operational and analytical aspects of modern banking data systems.
 ---
 
-## 🎯 Features
+## 🛠️ Technologies Used
 
-- 🔍 Loan approval prediction using Machine Learning  
-- 📊 Interactive web application using Streamlit  
-- 📝 Prediction logging system (stored in CSV)  
-- ⚙️ Feature engineering (DTI ratio, credit score transformations)  
-- 📈 Basic monitoring pipeline for tracking model outputs  
-
----
-
-## 🛠️ Tech Stack
-
-- **Python**
-- **Pandas, NumPy**
-- **Scikit-learn**
-- **Streamlit**
-  
+Python, Pandas, NumPy, Scikit-learn, Streamlit, Tableau, Pickle
 
 ---
 
 ## 📂 Project Structure
+
 creditwise-loan-system/
-│
-├── app.py # Streamlit application
-├── credit_wise.ipynb # Model training & EDA
-├── model.pkl # Trained ML model
-├── loan_approval_data.csv # Dataset
-├── prediction_log.csv # Generated logs
-├── requirements.txt
-└── README.md
+
+- app.py → Streamlit application for prediction and logging  
+- credit_wise.ipynb → Model training and data analysis  
+- model.pkl → Trained machine learning model  
+- loan_approval_data.csv → Dataset  
+- prediction_log.csv → Generated logs for monitoring  
+- requirements.txt  
+
+---
+
+## ⚙️ Running the Application
+
+Install dependencies and run the Streamlit app:
+
+pip install -r requirements.txt  
+streamlit run app.py  
+
+---
+
+## 📊 Outputs
+
+The system produces two key outputs:
+
+1. A live application that predicts loan approval and logs each prediction  
+2. A dashboard that visualizes approval trends, income patterns, and credit risk insights  
+
 
 
 ---
 
-## ⚙️ How It Works
+## 🧠 Key Learnings
 
-1. User inputs loan applicant details  
-2. Model predicts approval (Yes/No)  
-3. Input + prediction is logged with timestamp  
-4. Logs can be viewed inside the app  
+This project demonstrates how machine learning models move beyond training into real-world usage. It highlights the importance of model monitoring, logging, and visualization in building reliable data systems, especially in financial domains where decision accuracy and transparency are critical.
 
 ---
 
-## ▶️ Run Locally
-
-```bash
-pip install -r requirements.txt
-streamlit run app.py
-
-
-## 📊 Dashboard (Tableau)
-
-This project also includes a Tableau dashboard analyzing:
-
-Loan approval distribution
-Income vs loan amount patterns
-Credit score comparison
+## 👤 Author  
+Mohammad Zaman Asif
