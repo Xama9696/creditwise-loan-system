@@ -30,7 +30,7 @@ property_area = st.selectbox("Property Area", ["Rural", "Semiurban", "Urban"])
 gender = st.selectbox("Gender", ["Female", "Male"])
 employer_category = st.selectbox("Employer Category", ["Business", "Government", "MNC", "Private", "Unemployed"])
 
-# ----------- PREDICT BUTTON -----------
+# ----------- PREDICT -----------
 
 if st.button("Predict"):
 
@@ -74,47 +74,24 @@ if st.button("Predict"):
 
     input_df = pd.DataFrame([features])
 
-    # ----------- PREDICTION -----------
-
+    # Prediction
     result = model.predict(input_df)
-    proba = model.predict_proba(input_df)[0][1]
 
-    # ----------- DISPLAY RESULT -----------
-
+    # Display result
     if result[0] == 1:
         st.success("✅ Loan Approved")
     else:
         st.error("❌ Loan Rejected")
 
-    st.write(f"Approval Probability: {proba:.2f}")
-
     # ----------- LOGGING -----------
 
     log_data = input_df.copy()
     log_data["prediction"] = result[0]
-    log_data["probability"] = proba
     log_data["timestamp"] = datetime.datetime.now()
 
     log_data.to_csv("prediction_log.csv", mode='a', header=False, index=False)
 
-    # ----------- DRIFT DETECTION -----------
-
-    try:
-        train_data = pd.read_csv("loan_approval_data.csv")
-        drift = abs(train_data.mean() - input_df.mean())
-
-        if drift.mean() > 0.1:
-            st.warning("⚠️ Data drift detected")
-
-    except:
-        pass
-
-    # ----------- ALERTS -----------
-
-    if proba < 0.4:
-        st.warning("⚠️ High risk application")
-
-# ----------- ADMIN PANEL -----------
+# ----------- VIEW LOGS -----------
 
 if st.sidebar.button("View Logs"):
     try:
